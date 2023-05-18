@@ -14,8 +14,9 @@ function writePassword() {
 
 }
 
-
+// Asks the user about their password and generates it
 function generatePassword(){
+    // Used variables
     var length = 0;
     var lower;
     var upper;
@@ -23,16 +24,21 @@ function generatePassword(){
     var special;
     var passwordReturn = "";
 
+    // Setting the initial value for the while loop
     length = prompt("How long would you like you password to be.");
+
+    // Loops until valid number given
     while((length < 8) || (128 < length)){
         length = prompt("Please enter a value between 8-128.");
     }
 
+    // Asking for rules
     lower = confirm("Would you like your password to contain lowercase.");
     upper = confirm("Would you like you password to contain uppercase.");
-    numbers = confirm("Woudl you like numbers in you password.");
+    numbers = confirm("Would you like numbers in you password.");
     special = confirm("Would you like your password to contain special charcters.");
 
+    // Gernerating the password
     for(i = 0; i < length; i++){
         var type = Math.floor(Math.random() * 4);
         if(lower == true && type == 0){
