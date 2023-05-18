@@ -57,7 +57,7 @@ function generatePassword(){
     for(i = 0; i < passLength; i++){
         var index = Math.floor(Math.random() * canUse.length);
 
-        passwordReturn += canUse[index].charAt(Math.floor(Math.random() * specialString.length));
+        passwordReturn += canUse[index].charAt(Math.floor(Math.random() * canUse[index].length));
     }
 
     return passwordReturn;
