@@ -21,7 +21,7 @@ function generatePassword(){
     var upper;
     var numbers;
     var special;
-    var passwordReturn;
+    var passwordReturn = "";
 
     length = prompt("How long would you like you password to be.");
     while((length < 8) || (128 < length)){
