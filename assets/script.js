@@ -18,10 +18,10 @@ function writePassword() {
 function generatePassword(){
     // Used variables
     var passLength = 0;
-    var lower;
-    var upper;
-    var numbers;
-    var special;
+    var lower = false;
+    var upper = false;
+    var numbers = false;
+    var special = false;
     var passwordReturn = "";
     var canUse = []
 
@@ -33,11 +33,13 @@ function generatePassword(){
         passLength = prompt("Please enter a value between 8-128.");
     }
 
-    // Asking for rules
-    lower = confirm("Would you like your password to contain lowercase.");
-    upper = confirm("Would you like you password to contain uppercase.");
-    numbers = confirm("Would you like numbers in you password.");
-    special = confirm("Would you like your password to contain special charcters.");
+    // Asking for rules and checks for at least one true
+    while(lower,upper,numbers,special == false){
+        lower = confirm("Would you like your password to contain lowercase.");
+        upper = confirm("Would you like you password to contain uppercase.");
+        numbers = confirm("Would you like numbers in you password.");
+        special = confirm("Would you like your password to contain special charcters.");
+    }
 
     // Creates a array of allowed Characters
     if(lower == true){
