@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 const lowerString = 'abcdefghijklmnopqrstuvwxyz';
 const upperString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const numberString = '0123456789';
-const specialString = ',./;\'[][]`~!@#$%^&*()_+|\"\\';
+const specialString = ',./;\'[]`~!@#$%^&*()_+|"\\';
 
 // Write password to the #password input
 function writePassword() {
@@ -56,7 +56,6 @@ function generatePassword(){
     // Gernerating the password
     for(i = 0; i < passLength; i++){
         var index = Math.floor(Math.random() * canUse.length);
-
         passwordReturn += canUse[index].charAt(Math.floor(Math.random() * canUse[index].length));
     }
 
