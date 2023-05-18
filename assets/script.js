@@ -17,19 +17,20 @@ function writePassword() {
 // Asks the user about their password and generates it
 function generatePassword(){
     // Used variables
-    var length = 0;
+    var passLength = 0;
     var lower;
     var upper;
     var numbers;
     var special;
     var passwordReturn = "";
+    var canUse = []
 
     // Setting the initial value for the while loop
-    length = prompt("How long would you like you password to be.");
+    passLength = prompt("How long would you like you password to be.");
 
     // Loops until valid number given
-    while((length < 8) || (128 < length)){
-        length = prompt("Please enter a value between 8-128.");
+    while((passLength < 8) || (128 < passLength)){
+        passLength = prompt("Please enter a value between 8-128.");
     }
 
     // Asking for rules
@@ -38,26 +39,25 @@ function generatePassword(){
     numbers = confirm("Would you like numbers in you password.");
     special = confirm("Would you like your password to contain special charcters.");
 
+    // Creates a array of allowed Characters
+    if(lower == true){
+        canUse.push(lowerString);
+    }
+    if(upper == true){
+        canUse.push(upperString);
+    }
+    if(numbers == true){
+        canUse.push(numberString);
+    }
+    if(special == true){
+        canUse.push(specialString);
+    }
+
     // Gernerating the password
-    for(i = 0; i < length; i++){
-        var type = Math.floor(Math.random() * 4);
-        if(lower == true && type == 0){
+    for(i = 0; i < passLength; i++){
+        var index = Math.floor(Math.random() * canUse.length);
 
-            passwordReturn += lowerString.charAt(Math.floor(Math.random() * lowerString.length));
-
-        }else if(upper == true && type == 1){
-
-            passwordReturn += upperString.charAt(Math.floor(Math.random() * upperString.length));
-
-        }else if(numbers == true && type == 2){
-
-            passwordReturn += numberString.charAt(Math.floor(Math.random() * numberString.length));
-
-        }else if(special == true && type == 3){
-
-            passwordReturn += specialString.charAt(Math.floor(Math.random() * specialString.length));
-
-        }
+        passwordReturn += canUse[index].charAt(Math.floor(Math.random() * specialString.length));
     }
 
     return passwordReturn;
