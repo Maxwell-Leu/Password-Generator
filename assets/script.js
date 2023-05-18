@@ -10,5 +10,14 @@ function writePassword() {
 
 }
 
+
+function generatePassword(){
+    var length;
+    var lower;
+    var upper;
+    var numbers;
+    var special;
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
